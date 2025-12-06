@@ -53,6 +53,7 @@ Route::post('/logout', [UserAuthController::class, 'logout'])->name('logout');
 Route::middleware(['auth'])->group(function () {
     Route::get('/my-orders', [OrderController::class, 'myOrders'])->name('orders.my-orders');
     Route::get('/profile', [UserAuthController::class, 'profile'])->name('profile');
+    Route::put('/profile', [UserAuthController::class, 'updateProfile'])->name('profile.update');
 });
 
 /*
@@ -96,4 +97,40 @@ Route::middleware(['restaurant.auth'])->prefix('restaurant')->name('restaurant.'
     Route::get('/meals/{meal}/edit', [RestaurantMealController::class, 'edit'])->name('meals.edit')->middleware('restaurant.owner');
     Route::put('/meals/{meal}', [RestaurantMealController::class, 'update'])->name('meals.update')->middleware('restaurant.owner');
     Route::delete('/meals/{meal}', [RestaurantMealController::class, 'destroy'])->name('meals.destroy')->middleware('restaurant.owner');
+});
+
+/*
+|--------------------------------------------------------------------------
+| ADMIN ROUTES
+|--------------------------------------------------------------------------
+*/
+
+use App\Http\Controllers\Admin\AuthController as AdminAuthController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\RestaurantController as AdminRestaurantController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+
+// Admin Login/Logout
+Route::get('/admin/login', [AdminAuthController::class, 'showLogin'])->name('admin.login');
+Route::post('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login.submit');
+Route::post('/admin/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
+
+
+// Admin Dashboard (Protected)
+Route::middleware(['admin.auth'])->prefix('admin')->name('admin.')->group(function () {
+    
+    // Dashboard
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+    
+    // Restaurants Management
+    Route::resource('restaurants', AdminRestaurantController::class);
+    
+    // Users Management
+    Route::get('/users', [AdminUserController::class, 'index'])->name('users.index');
+    Route::delete('/users/{user}', [AdminUserController::class, 'destroy'])->name('users.destroy');
+    
+    // Orders Management
+    Route::get('/orders', [AdminOrderController::class, 'index'])->name('orders.index');
+    Route::get('/orders/{order}', [AdminOrderController::class, 'show'])->name('orders.show');
 });

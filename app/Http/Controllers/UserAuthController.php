@@ -9,17 +9,11 @@ use Illuminate\Support\Facades\Hash;
 
 class UserAuthController extends Controller
 {
-    /**
-     * Show login form
-     */
     public function showLogin()
     {
         return view('auth.login');
     }
     
-    /**
-     * Handle login
-     */
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -36,17 +30,11 @@ class UserAuthController extends Controller
         return back()->withErrors(['email' => 'Invalid credentials.'])->withInput($request->only('email'));
     }
     
-    /**
-     * Show register form
-     */
     public function showRegister()
     {
         return view('auth.register');
     }
     
-    /**
-     * Handle registration
-     */
     public function register(Request $request)
     {
         $request->validate([
@@ -72,9 +60,6 @@ class UserAuthController extends Controller
         return redirect()->route('home')->with('success', 'Account created successfully!');
     }
     
-    /**
-     * Handle logout
-     */
     public function logout(Request $request)
     {
         Auth::logout();
@@ -85,11 +70,39 @@ class UserAuthController extends Controller
         return redirect()->route('home')->with('success', 'Logged out successfully!');
     }
     
-    /**
-     * Show user profile
-     */
     public function profile()
     {
         return view('auth.profile');
+    }
+    
+    public function updateProfile(Request $request)
+    {
+        $user = auth()->user();
+        
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'phone' => 'nullable|string|max:20',
+            'address' => 'nullable|string',
+            'city' => 'nullable|string|max:100',
+            'password' => 'nullable|min:6|confirmed',
+        ]);
+        
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'city' => $request->city,
+        ];
+        
+        // Update password if provided
+        if ($request->filled('password')) {
+            $data['password'] = Hash::make($request->password);
+        }
+        
+        $user->update($data);
+        
+        return back()->with('success', 'Profile updated successfully!');
     }
 }

@@ -7,11 +7,18 @@ use App\Models\Restaurant;
 use App\Models\Category;
 use App\Models\Meal;
 use App\Models\User;
+use App\Models\Admin;
 
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        Admin::create([
+            'name' => 'Admin',
+            'email' => 'admin@foodexpress.com',
+            'password' => 'admin123', // plain password
+        ]);
+        
         // Restaurant 1
         $restaurant1 = Restaurant::create([
             'name' => 'Pizza Palace',
