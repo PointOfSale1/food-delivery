@@ -1,5 +1,6 @@
 <?php
 
+
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
@@ -16,10 +17,9 @@ class DatabaseSeeder extends Seeder
         Admin::create([
             'name' => 'Admin',
             'email' => 'admin@foodexpress.com',
-            'password' => 'admin123', // plain password
+            'password' => 'admin123', 
         ]);
         
-        // Restaurant 1
         $restaurant1 = Restaurant::create([
             'name' => 'Pizza Palace',
             'email' => 'pizza@example.com',
@@ -80,7 +80,6 @@ class DatabaseSeeder extends Seeder
             'sort_order' => 1,
         ]);
 
-        // Restaurant 2
         $restaurant2 = Restaurant::create([
             'name' => 'Burger House',
             'email' => 'burger@example.com',
@@ -141,9 +140,6 @@ class DatabaseSeeder extends Seeder
             'sort_order' => 1,
         ]);
 
-        // -----------------------
-        // Additional restaurants
-        // Restaurant 3
         $restaurant3 = Restaurant::create([
             'name' => 'Sushi Master',
             'email' => 'sushi@example.com',
@@ -185,7 +181,6 @@ class DatabaseSeeder extends Seeder
             'sort_order' => 2,
         ]);
 
-        // Restaurant 4
         $restaurant4 = Restaurant::create([
             'name' => 'Taco Fiesta',
             'email' => 'taco@example.com',
@@ -227,8 +222,6 @@ class DatabaseSeeder extends Seeder
             'sort_order' => 2,
         ]);
 
-        // -----------------------
-        // Restaurant 5
         $restaurant5 = Restaurant::create([
             'name' => 'Dragon Wok',
             'email' => 'chinese@example.com',
@@ -270,8 +263,6 @@ class DatabaseSeeder extends Seeder
             'sort_order' => 2,
         ]);
 
-        // -----------------------
-        // Add more restaurants (6–15) following the same pattern
         $restaurant6 = Restaurant::create([
             'name' => 'Pasta Paradise',
             'email' => 'italian@example.com',
@@ -313,10 +304,6 @@ class DatabaseSeeder extends Seeder
             'sort_order' => 2,
         ]);
 
-        // You can continue in the same way up to 15 restaurants...
-        // Restaurant 7–15: Add your restaurants with categories & meals here
-
-        // Optional test user
         User::create([
             'name' => 'John Doe',
             'email' => 'john@example.com',
@@ -326,6 +313,61 @@ class DatabaseSeeder extends Seeder
             'city' => 'New York',
         ]);
 
-        $this->command->info('✅ Test data created successfully!');
+        $this->command->info('Test data created successfully!');
+
     }
 }
+
+// namespace Database\Seeders;
+
+// use Illuminate\Database\Seeder;
+// use App\Models\{
+//     Restaurant, Category, Meal, User, Admin, Order, OrderItem
+// };
+
+// class DatabaseSeeder extends Seeder
+// {
+//     public function run(): void
+//     {
+//         // Create Admin
+//         Admin::factory()->create([
+//             'name'  => 'Admin',
+//             'email' => 'admin@foodexpress.com',
+//             'password' => 'admin123',
+//         ]);
+
+//         // Create Users
+//         $users = User::factory(20)->create();
+
+//         // Create Restaurants
+//         Restaurant::factory(15)->create()->each(function ($restaurant) use ($users) {
+
+//             // Create Categories
+//             $categories = Category::factory(5)
+//                 ->create(['restaurant_id' => $restaurant->id]);
+
+//             // Create Meals
+//             foreach ($categories as $category) {
+//                 $meals = Meal::factory(10)
+//                     ->create([
+//                         'restaurant_id' => $restaurant->id,
+//                         'category_id'   => $category->id,
+//                     ]);
+
+//                 // Create Orders with Items
+//                 Order::factory(3)->create([
+//                     'restaurant_id' => $restaurant->id,
+//                     'user_id' => fake()->boolean(50) ? $users->random()->id : null,
+//                 ])->each(function ($order) use ($meals) {
+//                     OrderItem::factory(3)
+//                         ->create([
+//                             'order_id' => $order->id,
+//                             'meal_id'  => $meals->random()->id,
+//                         ]);
+//                 });
+//             }
+//         });
+
+//         $this->command->info('🔥 Data generated successfully.');
+//     }
+// }
