@@ -61,7 +61,8 @@
                     </div>
                     
                     <div class="d-flex gap-2">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary"
+                                style="background-color: #ff6767; border-color: #ff6767;">
                             <i class="bi bi-check-circle"></i> 
                             {{ isset($category) ? 'Update' : 'Create' }} Category
                         </button>

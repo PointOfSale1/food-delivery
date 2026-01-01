@@ -8,39 +8,32 @@
 <div class="card border-0 shadow-sm mb-4">
     <div class="card-body">
         <ul class="nav nav-pills">
-            <li class="nav-item">
-                <a class="nav-link {{ request('status', 'all') == 'all' ? 'active' : '' }}" 
-                   href="{{ route('admin.orders.index') }}">
-                    All Orders ({{ $statusCounts['all'] }})
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ request('status') == 'pending' ? 'active' : '' }}" 
-                   href="{{ route('admin.orders.index', ['status' => 'pending']) }}">
-                    Pending ({{ $statusCounts['pending'] }})
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ request('status') == 'confirmed' ? 'active' : '' }}" 
-                   href="{{ route('admin.orders.index', ['status' => 'confirmed']) }}">
-                    Confirmed ({{ $statusCounts['confirmed'] }})
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ request('status') == 'delivered' ? 'active' : '' }}" 
-                   href="{{ route('admin.orders.index', ['status' => 'delivered']) }}">
-                    Delivered ({{ $statusCounts['delivered'] }})
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ request('status') == 'cancelled' ? 'active' : '' }}" 
-                   href="{{ route('admin.orders.index', ['status' => 'cancelled']) }}">
-                    Cancelled ({{ $statusCounts['cancelled'] }})
-                </a>
-            </li>
+            @php
+                $statuses = [
+                    'all' => 'All Orders', 
+                    'pending' => 'Pending', 
+                    'confirmed' => 'Confirmed', 
+                    'preparing' => 'Preparing', 
+                    'delivered' => 'Delivered', 
+                    'cancelled' => 'Cancelled'
+                ];
+            @endphp
+
+            @foreach($statuses as $key => $label)
+                <li class="nav-item">
+                    <a class="nav-link {{ request('status', 'all') == $key ? 'active' : '' }}" 
+                       href="{{ route('admin.orders.index', $key !== 'all' ? ['status' => $key] : []) }}"
+                       style="{{ request('status', 'all') == $key 
+                                ? 'background-color: #ff6767; border-color: #ff6767; color: white;' 
+                                : 'color: #6c757d;' }}">
+                        {{ $label }} ({{ $statusCounts[$key] ?? 0 }})
+                    </a>
+                </li>
+            @endforeach
         </ul>
     </div>
 </div>
+
 
 <!-- Orders Table -->
 <div class="card border-0 shadow-sm">

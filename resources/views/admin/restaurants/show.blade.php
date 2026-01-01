@@ -147,7 +147,8 @@
                 <h6 class="fw-bold mb-3">Actions</h6>
                 <div class="d-grid gap-2">
                     <a href="{{ route('admin.restaurants.edit', $restaurant) }}" 
-                       class="btn btn-primary btn-sm">
+                       class="btn btn-primary btn-sm"
+                        style="background-color: #ff6767; border-color: #ff6767;">
                         <i class="bi bi-pencil"></i> Edit Restaurant
                     </a>
                     <a href="{{ route('restaurants.show', $restaurant) }}" 

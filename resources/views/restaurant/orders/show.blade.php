@@ -149,7 +149,8 @@
                         </select>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary w-100">
+                    <button type="submit" class="btn btn-primary w-100"
+                            style="background-color: #ff6767; border-color: #ff6767;">
                         <i class="bi bi-check-circle"></i> Update Status
                     </button>
                 </form>

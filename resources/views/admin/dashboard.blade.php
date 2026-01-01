@@ -101,7 +101,8 @@
                     <h5 class="fw-bold mb-0">
                         <i class="bi bi-shop"></i> Recent Restaurants
                     </h5>
-                    <a href="{{ route('admin.restaurants.index') }}" class="btn btn-sm btn-primary">
+                    <a href="{{ route('admin.restaurants.index') }}" class="btn btn-primary"
+                        style="background-color: #ff6767; border-color: #ff6767;">
                         View All <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
@@ -155,7 +156,8 @@
                     <h5 class="fw-bold mb-0">
                         <i class="bi bi-bag"></i> Recent Orders
                     </h5>
-                    <a href="{{ route('admin.orders.index') }}" class="btn btn-sm btn-primary">
+                    <a href="{{ route('admin.orders.index') }}" class="btn btn-primary"
+                        style="background-color: #ff6767; border-color: #ff6767;">
                         View All <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>

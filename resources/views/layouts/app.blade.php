@@ -32,7 +32,6 @@
         
         .card {
             transition: transform 0.2s;
-            height: 100%;
         }
         
         .card:hover {
@@ -55,12 +54,12 @@
     
     @yield('styles')
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold text-danger" href="{{ route('home') }}">
-                <i class="bi bi-truck"></i> FoodExpress
+                <i class="bi bi-truck"></i> Bytebite
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -147,7 +146,7 @@
     </div>
 
     <!-- Main Content -->
-    <main class="py-4">
+    <main class="py-4 flex-grow-1">
         @yield('content')
     </main>
 
@@ -156,7 +155,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <h5 class="fw-bold">FoodExpress</h5>
+                    <h5 class="fw-bold">Bytebite</h5>
                     <p class="text-muted">Delivering happiness to your doorstep</p>
                 </div>
                 <div class="col-md-4">
@@ -168,13 +167,13 @@
                 </div>
                 <div class="col-md-4">
                     <h6>Contact</h6>
-                    <p class="text-muted mb-0"><i class="bi bi-envelope"></i> support@foodexpress.com</p>
+                    <p class="text-muted mb-0"><i class="bi bi-envelope"></i> support@bytebite.com</p>
                     <p class="text-muted"><i class="bi bi-telephone"></i> +1 234 567 8900</p>
                 </div>
             </div>
             <hr>
             <div class="text-center text-muted">
-                <small>&copy; 2024 FoodExpress. All rights reserved.</small>
+                <small>&copy; 2024 Bytebite. All rights reserved.</small>
             </div>
         </div>
     </footer>

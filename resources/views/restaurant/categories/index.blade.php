@@ -9,7 +9,8 @@
         <h4 class="fw-bold mb-0">Menu Categories</h4>
         <p class="text-muted mb-0">Organize your menu into categories</p>
     </div>
-    <a href="{{ route('restaurant.categories.create') }}" class="btn btn-primary">
+    <a href="{{ route('restaurant.categories.create') }}" class="btn btn-primary"
+        style="background-color: #ff6767; border-color: #ff6767;">
         <i class="bi bi-plus-circle"></i> Add Category
     </a>
 </div>

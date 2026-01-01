@@ -130,7 +130,7 @@
                     <hr class="my-4">
                     
                     <div class="d-flex gap-2">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary" style="background-color: #ff6767; border-color: #ff6767;">
                             <i class="bi bi-check-circle"></i> Update Meal
                         </button>
                         <a href="{{ route('restaurant.meals.index') }}" class="btn btn-outline-secondary">

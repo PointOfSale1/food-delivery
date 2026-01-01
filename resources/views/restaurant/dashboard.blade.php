@@ -80,9 +80,12 @@
                     <h5 class="fw-bold mb-0">
                         <i class="bi bi-clock-history"></i> Recent Orders
                     </h5>
-                    <a href="{{ route('restaurant.orders.index') }}" class="btn btn-sm btn-primary">
-                        View All Orders <i class="bi bi-arrow-right"></i>
+                    <a href="{{ route('restaurant.orders.index') }}" 
+                    class="btn btn-primary"
+                    style="background-color: #ff6767; border-color: #ff6767;">
+                        View All Orders
                     </a>
+
                 </div>
                 
                 @if($recentOrders->count() > 0)

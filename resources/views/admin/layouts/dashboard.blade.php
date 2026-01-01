@@ -11,7 +11,7 @@
     <style>
         .sidebar {
             min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ff6767ff 0%, #F28482 100%);
             padding: 0;
         }
         

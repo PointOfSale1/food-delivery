@@ -10,15 +10,25 @@
     
     <style>
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(180deg, #FFF3E6 0%, #FFF8F1 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
+            padding: 60px 0;
         }
         
         .login-card {
             border-radius: 15px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background-color: #F28482;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #FF5252;
         }
     </style>
 </head>
@@ -99,7 +109,7 @@
                     </div>
                 </div>
                 
-                <div class="text-center mt-3 text-white">
+                <div class="text-center mt-3 text-black">
                     <small>
                         Default: admin@foodexpress.com / admin123
                     </small>
