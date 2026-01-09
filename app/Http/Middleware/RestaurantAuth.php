@@ -6,10 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * Laravel 11 Restaurant Authentication Middleware
- * Checks if restaurant is logged in
- */
+//Checks if restaurant is logged in
 class RestaurantAuth
 {
     public function handle(Request $request, Closure $next): Response

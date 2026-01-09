@@ -9,9 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    /**
-     * Show admin login form
-     */
+    // Show admin login form ... redirect if already logged in
     public function showLogin()
     {
         // Redirect if already logged in
@@ -21,10 +19,8 @@ class AuthController extends Controller
         
         return view('admin.auth.login');
     }
-    
-    /**
-     * Handle admin login
-     */
+
+    // Handle admin login ... check validity and store session
     public function login(Request $request)
     {
         $request->validate([
@@ -32,8 +28,10 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
         
+        // Check if admin exists in database
         $admin = Admin::where('email', $request->email)->first();
         
+        // Check password validity
         if ($admin && Hash::check($request->password, $admin->password)) {
             // Store admin info in session
             session([
@@ -49,10 +47,8 @@ class AuthController extends Controller
         return back()->withErrors(['email' => 'Invalid credentials.'])
             ->withInput($request->only('email'));
     }
-    
-    /**
-     * Handle admin logout
-     */
+
+    // Handle admin logout ... clear session
     public function logout()
     {
         session()->forget(['admin_id', 'admin_name', 'admin_email']);

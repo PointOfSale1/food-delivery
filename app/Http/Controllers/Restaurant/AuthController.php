@@ -9,9 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    /**
-     * Show login form
-     */
+    // Show login form
     public function showLogin()
     {
         // Redirect if already logged in
@@ -21,10 +19,7 @@ class AuthController extends Controller
         
         return view('restaurant.auth.login');
     }
-    
-    /**
-     * Handle login
-     */
+     // Handle login
     public function login(Request $request)
     {
         $request->validate([
@@ -56,9 +51,7 @@ class AuthController extends Controller
         return back()->withErrors(['email' => 'Invalid email or password.'])->withInput($request->only('email'));
     }
     
-    /**
-     * Handle logout
-     */
+    // Handle logout
     public function logout()
     {
         // Clear restaurant session

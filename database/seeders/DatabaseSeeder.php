@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         ]);
         
         $restaurant1 = Restaurant::create([
-            'name' => 'Pizza Palace',
+            'name' => 'Pizza Place',
             'email' => 'pizza@example.com',
             'password' => 'password123',
             'phone' => '123-456-7890',
@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             'city' => 'New York',
             'description' => 'Best pizza in town!',
             'status' => 'active',
+            'logo' => 'restaurants/Pizza_Place.webp',
         ]);
 
         $pizza = Category::create([
@@ -56,6 +57,7 @@ class DatabaseSeeder extends Seeder
             'price' => 12.99,
             'is_available' => true,
             'sort_order' => 1,
+            'image' => 'meals/Margherita_pizza.jpg',
         ]);
 
         Meal::create([
@@ -67,6 +69,7 @@ class DatabaseSeeder extends Seeder
             'price' => 14.99,
             'is_available' => true,
             'sort_order' => 2,
+            'image' => 'meals/Pepperoni_Pizza.jpeg',
         ]);
 
         Meal::create([
@@ -78,10 +81,11 @@ class DatabaseSeeder extends Seeder
             'price' => 2.99,
             'is_available' => true,
             'sort_order' => 1,
+            'image' => 'meals/Coca_Cola.webp',
         ]);
 
         $restaurant2 = Restaurant::create([
-            'name' => 'Burger House',
+            'name' => 'BareBurger',
             'email' => 'burger@example.com',
             'password' => 'password123',
             'phone' => '123-456-7891',
@@ -89,6 +93,7 @@ class DatabaseSeeder extends Seeder
             'city' => 'Los Angeles',
             'description' => 'Delicious burgers and fries',
             'status' => 'active',
+            'logo' => 'restaurants/BareBurger.webp',
         ]);
 
         $burgers = Category::create([
@@ -116,6 +121,7 @@ class DatabaseSeeder extends Seeder
             'price' => 9.99,
             'is_available' => true,
             'sort_order' => 1,
+            'image' => 'meals/Classic_Burger.avif',
         ]);
 
         Meal::create([
@@ -127,6 +133,7 @@ class DatabaseSeeder extends Seeder
             'price' => 11.99,
             'is_available' => true,
             'sort_order' => 2,
+            'image' => 'meals/Bacon_Burger.jpg',
         ]);
 
         Meal::create([
@@ -138,6 +145,7 @@ class DatabaseSeeder extends Seeder
             'price' => 3.99,
             'is_available' => true,
             'sort_order' => 1,
+            'image' => 'meals/French_Fries.jpg',
         ]);
 
         $restaurant3 = Restaurant::create([
@@ -149,6 +157,7 @@ class DatabaseSeeder extends Seeder
             'city' => 'San Francisco',
             'description' => 'Fresh sushi and sashimi',
             'status' => 'active',
+            'logo' => 'restaurants/Sushi_Master.jpg',
         ]);
 
         $sushiRolls = Category::create([
@@ -168,6 +177,7 @@ class DatabaseSeeder extends Seeder
             'price' => 8.99,
             'is_available' => true,
             'sort_order' => 1,
+            'image' => 'meals/California_Roll.jpg',
         ]);
 
         Meal::create([
@@ -179,6 +189,7 @@ class DatabaseSeeder extends Seeder
             'price' => 10.99,
             'is_available' => true,
             'sort_order' => 2,
+            'image' => 'meals/Spicy_Tuna_Roll.webp',
         ]);
 
         $restaurant4 = Restaurant::create([
@@ -190,6 +201,7 @@ class DatabaseSeeder extends Seeder
             'city' => 'Austin',
             'description' => 'Authentic Mexican tacos',
             'status' => 'active',
+            'logo' => 'restaurants/Velvet_Taco.jpg',
         ]);
 
         $tacos = Category::create([
@@ -209,6 +221,7 @@ class DatabaseSeeder extends Seeder
             'price' => 8.99,
             'is_available' => true,
             'sort_order' => 1,
+            'image' => 'meals/Beef_Tacos.webp',
         ]);
 
         Meal::create([
@@ -220,10 +233,11 @@ class DatabaseSeeder extends Seeder
             'price' => 8.99,
             'is_available' => true,
             'sort_order' => 2,
+            'image' => 'meals/Chicken_Tacos.jpg',
         ]);
 
         $restaurant5 = Restaurant::create([
-            'name' => 'Dragon Wok',
+            'name' => 'Dragon Belly',
             'email' => 'chinese@example.com',
             'password' => 'password123',
             'phone' => '123-456-7894',
@@ -231,6 +245,7 @@ class DatabaseSeeder extends Seeder
             'city' => 'Seattle',
             'description' => 'Traditional Chinese cuisine',
             'status' => 'active',
+            'logo' => 'restaurants/Dragon_Belly.jpg',
         ]);
 
         $chinese = Category::create([
@@ -250,6 +265,7 @@ class DatabaseSeeder extends Seeder
             'price' => 12.99,
             'is_available' => true,
             'sort_order' => 1,
+            'image' => 'meals/Kung_Pao_Chicken.jpg',
         ]);
 
         Meal::create([
@@ -261,10 +277,11 @@ class DatabaseSeeder extends Seeder
             'price' => 11.99,
             'is_available' => true,
             'sort_order' => 2,
+            'image' => 'meals/Sweet_and_Sour_Pork.webp',
         ]);
 
         $restaurant6 = Restaurant::create([
-            'name' => 'Pasta Paradise',
+            'name' => 'Pasta Mia',
             'email' => 'italian@example.com',
             'password' => 'password123',
             'phone' => '123-456-7895',
@@ -272,6 +289,7 @@ class DatabaseSeeder extends Seeder
             'city' => 'Boston',
             'description' => 'Homemade pasta and Italian dishes',
             'status' => 'active',
+            'logo' => 'restaurants/Pasta_Mia.jpg',
         ]);
 
         $pasta = Category::create([
@@ -291,6 +309,7 @@ class DatabaseSeeder extends Seeder
             'price' => 13.99,
             'is_available' => true,
             'sort_order' => 1,
+            'image' => 'meals/Spaghetti_Bolognese.png',
         ]);
 
         Meal::create([
@@ -302,6 +321,7 @@ class DatabaseSeeder extends Seeder
             'price' => 12.99,
             'is_available' => true,
             'sort_order' => 2,
+            'image' => 'meals/Fettuccine_Alfredo.jpg',
         ]);
 
         User::create([

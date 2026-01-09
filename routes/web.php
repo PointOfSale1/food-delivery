@@ -68,6 +68,8 @@ Route::post('/restaurant/login', [RestaurantAuthController::class, 'login'])->na
 Route::post('/restaurant/logout', [RestaurantAuthController::class, 'logout'])->name('restaurant.logout');
 
 // Restaurant Dashboard (Protected Routes)
+/* Routes with {order}, {meal}, or {category} AND modification/view actions use BOTH middlewares.
+List & create routes use only authentication. */
 Route::middleware(['restaurant.auth'])->prefix('restaurant')->name('restaurant.')->group(function () {
     
     // Dashboard Home
@@ -118,6 +120,7 @@ Route::post('/admin/logout', [AdminAuthController::class, 'logout'])->name('admi
 
 
 // Admin Dashboard (Protected)
+// apply admin.auth middleware to all routes
 Route::middleware(['admin.auth'])->prefix('admin')->name('admin.')->group(function () {
     
     // Dashboard

@@ -9,14 +9,15 @@ use App\Models\Order;
 use App\Models\Meal;
 use App\Models\Category;
 
+ /* Authorization */ 
 class RestaurantOwner
 {
-    /**
-     * Handle an incoming request.
-     * Ensures restaurant can only access THEIR OWN data
-     * 
-     * This prevents Restaurant A from viewing/editing Restaurant B's orders/meals
-     */
+    
+    //Handle an incoming request.
+    //Ensures restaurant can only access THEIR OWN data
+    //This prevents Restaurant A from viewing/editing Restaurant B's orders/meals
+    // answer the question: Does this data belong to the logged-in restaurant?
+     
     public function handle(Request $request, Closure $next): Response
     {
         $restaurantId = session('restaurant_id');
